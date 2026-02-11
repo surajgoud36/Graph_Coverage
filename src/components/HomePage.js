@@ -1,7 +1,6 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
-import Navbar from './NavBar.js';
-import Footer from './Footer.js';
+
 import GraphImage from '../assets/graph-image.png';
 import Section from './Section';
 
