@@ -78,23 +78,7 @@ function GeneratePage() {
     setSelectedOption(event.target.value);
   };
 
-  const handleFormatEdgePairs = (path) => {
-   
-    return path
-      .map((node, index, arr) => {
-        if (index < arr.length - 2) {
-          // Ensure there's a pair to display
-          return `[${node} -> ${arr[index + 1]}, ${arr[index + 1]} -> ${arr[index + 2]
-            }]`;
-        } else if (index === arr.length - 2) {
-          // Handle the penultimate node
-          return `[${node} -> ${arr[index + 1]}]`;
-        }
-        return ""; // The last node doesn't form a pair, so it's ignored
-      })
-      .filter(Boolean)
-      .join(", ");
-  };
+  
 
   const handleClick = () => {
     let startNode = "";
@@ -297,7 +281,7 @@ function GeneratePage() {
 
   // Ensure that there are always at least 6 rows on initial load
   useEffect(() => {
-    if (rows.length < 6) {
+    
       setRows((prevRows) => {
         if (prevRows.length < 6) {
           return [
@@ -307,7 +291,7 @@ function GeneratePage() {
         }
         return prevRows;
       });
-    }
+    
   }, []); // Empty dependency array to only run once on mount
   // Include rows as dependency to trigger effect on rows change
 
@@ -597,7 +581,7 @@ function dfs(graph, currentNode, endNode, edges, paths, path) {
           if (len === 0) {
             edges.delete(currentNode);
           }
-          let popped = path.pop();
+          
         } else {
           let reps = countOccurrences(array, neigh);
           if (reps === 1) {
@@ -613,7 +597,7 @@ function dfs(graph, currentNode, endNode, edges, paths, path) {
             if (len === 0) {
               edges.delete(currentNode);
             }
-            let popped = path.pop();
+           
           }
         }
       } else {
@@ -623,14 +607,14 @@ function dfs(graph, currentNode, endNode, edges, paths, path) {
         dfs(graph, neigh, endNode, edges, paths, path);
         let array = edges.get(currentNode);
         let index = array.indexOf(neigh);
-        if (index != -1) {
+        if (index !== -1) {
           array.splice(index, 1);
         }
         let len = array.length;
         if (len === 0) {
           edges.delete(currentNode);
         }
-        let popped = path.pop();
+       
       }
     }
   }
@@ -698,7 +682,7 @@ function generateFinalPaths() {
       fpath1.push([...a1]);
     }
   }); // creating fpaths
-  let counter3 = 0;
+ 
   for (let i = 0; i < fpath1.length; i++) {
     let a1 = [...fpath1[i]];
     let flag = 0;
@@ -721,7 +705,7 @@ function generateFinalPaths() {
     }
   }
 
-  let counter4 = 0;
+ 
   for (let i = 0; i < fpath2.length; i++) {
     let a1 = [...fpath2[i]];
     let flag = 0;
@@ -910,13 +894,13 @@ function pathEdgeCoverage(fpath) {
         if (arraysEqual(array1, array2) === 0) {
           // arrrays are different
           // check for array that is deleted
-          if (checkIndex1(k, temp1) != 1) {
+          if (checkIndex1(k, temp1) !== 1) {
             let l2 = array2.length;
             for (let h = 0; h <= l2 - 2; h++) {
               let x = array2[h];
               let y = array2[h + 1];
 
-              if (a == x && b == y) {
+              if (a === x && b === y) {
                 hit1 = 1;
                 break;
               }
@@ -956,12 +940,12 @@ function pathNodeCoverage(fpath) {
         if (arraysEqual(array1, array2) === 0) {
           // arrrays are different
           // check for array that is deleted
-          if (checkIndex1(k, temp2) != 1) {
+          if (checkIndex1(k, temp2) !== 1) {
             let l2 = array2.length;
             for (let h = 0; h <= l2 - 1; h++) {
               let x = array2[h];
 
-              if (a == x) {
+              if (a === x) {
                 hit1 = 1;
                 break;
               }
@@ -1001,13 +985,13 @@ function pathEdgePairCoverage() {
         if (arraysEqual(array1, array2) === 0) {
           // arrrays are different
           // check for array that is deleted
-          if (checkIndex(k) != 1) {
+          if (checkIndex(k) !== 1) {
             let l2 = array2.length;
             for (let h = 0; h <= l2 - 3; h++) {
               let x = array2[h];
               let y = array2[h + 1];
               let z = array2[h + 2];
-              if (a == x && b == y && c == z) {
+              if (a === x && b === y && c === z) {
                 hit1 = 1;
                 break;
               }
