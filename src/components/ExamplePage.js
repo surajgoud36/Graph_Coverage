@@ -1,9 +1,9 @@
-import React, { useState } from 'react';
+
 import GraphImage from '../assets/graph-example.png'; 
 import "../styling/ExamplePage.css"
 
 const ExamplePage = () => {
-  const [graphInputs, setGraphInputs] = useState(Array(6).fill({ node: '', edges: '' }));
+  
 
   
 
@@ -107,3 +107,4 @@ const ExamplePage = () => {
 
 
 export default ExamplePage;
+
