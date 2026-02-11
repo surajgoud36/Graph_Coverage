@@ -5,11 +5,7 @@ import "../styling/ExamplePage.css"
 const ExamplePage = () => {
   const [graphInputs, setGraphInputs] = useState(Array(6).fill({ node: '', edges: '' }));
 
-  const handleInputChange = (index, field, value) => {
-    const newInputs = [...graphInputs];
-    newInputs[index][field] = value;
-    setGraphInputs(newInputs);
-  };
+  
 
   const graphNodes = [
     { node: 'A', edges: 'B' },
@@ -108,5 +104,6 @@ const ExamplePage = () => {
     </div>
   );
 };
+
 
 export default ExamplePage;
