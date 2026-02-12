@@ -4,10 +4,10 @@ import 'bootstrap/dist/css/bootstrap.min.css';
 import './App.css';
 
 import NavBar from './components/NavBar';
-import HomePage from './components/HomePage';
+import HomePage from './pages/HomePage';
 import Footer from './components/Footer';
-import GeneratePage from './components/GeneratePage';
-import ExamplePage from './components/ExamplePage';
+import GeneratePage from './pages/GeneratePage';
+import ExamplePage from './pages/ExamplePage';
 
 function App() {
   return (
